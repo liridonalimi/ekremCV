@@ -1,0 +1,17 @@
+.git
+.git/**
+.github
+.github/**
+.wrangler
+.wrangler/**
+.gitignore
+.DS_Store
+README.md
+LICENSE
+*.zip
+wrangler.jsonc
+wrangler.toml
+package.json
+package-lock.json
+node_modules
+node_modules/**
