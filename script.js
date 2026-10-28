@@ -121,11 +121,22 @@ function renderProjects() {
     article.dataset.acronym = project.acronym || "PROJECT";
     article.append(createElement("span", "project-number", String(index + 1).padStart(2, "0")), createElement("h3", "", project.title));
     const details = createElement("div", "project-details");
-    details.append(createElement("span", "project-label", project.context || `${project.acronym || "International"} project`));
-    if (project.role) details.append(createElement("strong", "project-role", project.role));
-    if (project.reference) details.append(createElement("span", "project-reference", `Project no. ${project.reference}`));
+    const facts = createElement("dl", "project-facts");
+    const appendFact = (label, value, className = "") => {
+      if (!value) return;
+      const row = createElement("div", `project-fact${className ? ` ${className}` : ""}`);
+      row.append(createElement("dt", "", label), createElement("dd", "", value));
+      facts.append(row);
+    };
+    appendFact("Role", project.role, "project-fact-role");
+    appendFact("Context", project.context);
+    appendFact("Reference", project.reference);
+    details.append(facts);
     const link = makeLink("Project website →", project.href, "project-link");
-    if (link) details.append(link);
+    if (link) {
+      link.setAttribute("aria-label", `Visit the ${project.acronym || project.title} project website`);
+      details.append(link);
+    }
     article.append(details);
     container.append(article);
   });

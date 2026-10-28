@@ -183,9 +183,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-card::after { position: absolute; right: -2rem; top: 2rem; color: rgba(21,24,22,.07); content: attr(data-acronym); font: 800 7rem/1 var(--sans); letter-spacing: -.08em; }
 .project-card h3 { position: relative; z-index: 1; margin: auto 0 1.5rem; font: 400 clamp(1.8rem, 3vw, 3rem)/1.06 var(--serif); letter-spacing: -.04em; }
 .project-details { position: relative; z-index: 1; display: flex; min-width: 0; padding-top: 1rem; border-top: 1px solid var(--line); gap: .55rem; flex-direction: column; }
-.project-label { color: var(--muted); font: 700 .6rem/1.35 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
-.project-role { font: 400 1.15rem/1.25 var(--serif); }
-.project-reference { color: var(--muted); font: 600 .58rem/1.4 var(--mono); overflow-wrap: anywhere; }
+.project-facts { margin: 0; }
+.project-fact { display: grid; padding: .55rem 0; border-bottom: 1px solid var(--line); grid-template-columns: 4.5rem minmax(0, 1fr); gap: .8rem; }
+.project-fact:first-child { padding-top: 0; }
+.project-fact dt { color: var(--muted); font: 750 .55rem/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.project-fact dd { min-width: 0; margin: 0; color: var(--muted); font-size: .67rem; line-height: 1.45; overflow-wrap: anywhere; }
+.project-fact-role dd { color: var(--ink); font: 400 1.05rem/1.25 var(--serif); }
 .project-link { width: max-content; margin-top: .25rem; border-bottom: 1px solid currentColor; font: 750 .6rem/1.5 var(--mono); text-transform: uppercase; }
 
 .contribution-section { background: #dfe4ef; }
