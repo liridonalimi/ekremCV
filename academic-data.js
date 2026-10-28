@@ -650,7 +650,7 @@ window.academicData = {
       date: "12–15 June 2019",
       location: "Istanbul, Turkey",
       details: "Source entry also includes “7–8”; context not supplied.",
-      href: null,
+      href: "http://2019.icrapam.org/participants.php",
       topics: ["convergence"],
     },
     {
