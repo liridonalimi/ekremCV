@@ -282,6 +282,26 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .knowledge-item h3 { margin: 0; font: 400 clamp(1.25rem, 2vw, 1.75rem)/1.15 var(--serif); }
 .knowledge-item p { margin: .5rem 0 0; color: #d8dcf0; font-size: .75rem; }
 
+.contact-section { background: var(--paper-2); }
+.contact-layout { display: grid; overflow: hidden; border: 1px solid var(--line); grid-template-columns: minmax(0, 1.2fr) minmax(23rem, .8fr); }
+.contact-portrait { position: relative; display: flex; min-width: 0; margin: 0; background: var(--ink); flex-direction: column; }
+.contact-portrait picture { display: flex; min-height: 0; flex: 1; }
+.contact-portrait img { display: block; width: 100%; height: 100%; min-height: 34rem; object-fit: cover; object-position: center; }
+.contact-portrait figcaption { padding: .85rem 1rem; border-top: 1px solid var(--line-dark); color: #c5cac5; font: 700 .58rem/1.35 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+.contact-details { min-width: 0; padding: clamp(1.5rem, 4vw, 3.5rem); border-left: 1px solid var(--line); }
+.contact-kicker { margin: 0; color: var(--cobalt); font: 800 .62rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.contact-details h3 { margin: 2.5rem 0 .6rem; font: 400 clamp(2.8rem, 5vw, 5.2rem)/.9 var(--serif); letter-spacing: -.055em; }
+.contact-role { margin: 0; color: var(--muted); font-size: .78rem; font-weight: 750; }
+.contact-record { margin: 2.5rem 0 0; border-top: 1px solid var(--line); }
+.contact-record > div { display: grid; padding: .9rem 0; border-bottom: 1px solid var(--line); grid-template-columns: 6rem minmax(0, 1fr); gap: 1rem; }
+.contact-record dt { font: 750 .58rem/1.5 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+.contact-record dd { min-width: 0; margin: 0; color: var(--muted); font-size: .76rem; overflow-wrap: anywhere; }
+.contact-record address { font-style: normal; }
+.contact-record a { color: var(--ink); border-bottom: 1px solid currentColor; }
+.contact-actions { display: flex; align-items: center; margin-top: 2rem; gap: .8rem; flex-wrap: wrap; }
+.contact-cv-button { border-color: var(--ink); }
+.contact-download { margin-left: .2rem; border-bottom: 1px solid currentColor; font: 750 .6rem/1.5 var(--mono); text-transform: uppercase; }
+
 .profiles-section { background: var(--vermilion); }
 .profiles-heading { max-width: 62rem; margin-bottom: 4rem; }
 .profile-links { display: grid; border-top: 1px solid rgba(21,24,22,.35); border-left: 1px solid rgba(21,24,22,.35); grid-template-columns: repeat(3, 1fr); }
@@ -357,6 +377,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .filter-row { justify-content: flex-start; }
   .publication-item { grid-template-columns: 3rem minmax(0, 1fr); }
   .publication-meta { grid-column: 2; align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-portrait img { height: auto; min-height: 0; aspect-ratio: 2 / 1; }
+  .contact-details { border-top: 1px solid var(--line); border-left: 0; }
 }
 
 @media (max-width: 560px) {
@@ -399,6 +422,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .conference-record { padding-left: 0; grid-template-columns: 1fr; }
   .conference-record a { justify-self: start; }
   .publication-item { grid-template-columns: 2.2rem minmax(0, 1fr); gap: .7rem; }
+  .contact-details { padding: 1.4rem; }
+  .contact-record > div { grid-template-columns: 1fr; gap: .35rem; }
+  .contact-actions { align-items: stretch; flex-direction: column; }
+  .contact-download { align-self: flex-start; margin: .35rem 0 0; }
   .profile-links { grid-template-columns: 1fr; }
   .site-footer { grid-template-columns: 1fr; }
   .copyright { grid-column: 1; }
@@ -420,7 +447,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   @page { margin: 1.35cm; size: A4; }
   :root { --paper: #fff; --paper-2: #fff; --ink: #000; --muted: #333; }
   body { background: #fff; color: #000; font-size: 9pt; }
-  .skip-link, .scroll-progress, .site-header, .hero-actions, .convergence-card, .archive-tools, .activity-panel, .section-link, .featured-section, .selected-talks, .profiles-section, .site-footer, .copy-status, .leadership-note { display: none !important; }
+  .skip-link, .scroll-progress, .site-header, .hero-actions, .convergence-card, .archive-tools, .activity-panel, .section-link, .featured-section, .selected-talks, .contact-portrait, .contact-actions, .profiles-section, .site-footer, .copy-status, .leadership-note { display: none !important; }
   .hero, .section, .snapshot { display: block; min-height: 0; max-width: none; padding: 0 0 .8cm; background: #fff !important; color: #000 !important; }
   .hero h1 { font-size: 42pt; }
   .hero-role { margin-top: .4cm; }
@@ -429,6 +456,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .section-heading, .split-heading, .education-layout, .knowledge-layout { display: block; margin-bottom: .5cm; }
   .section-heading h2, .split-heading h2 { margin-bottom: .35cm; font-size: 23pt; }
   .section-heading > p:last-child, .split-heading > p, .section-dark .split-heading > p { color: #000; }
+  .contact-layout { display: block; border: 0; }
+  .contact-details { padding: 0; border: 0; }
   .research-grid, .teaching-grid, .project-grid, .contribution-stats, .contribution-groups { display: grid; grid-template-columns: 1fr 1fr; margin-top: .4cm; }
   .research-card, .research-card-main, .teaching-card, .project-card, .contribution-stat, .contribution-group { min-height: 0; padding: .35cm; border: 1px solid #999; background: #fff !important; color: #000 !important; grid-column: auto; }
   .research-card h3, .teaching-card h3, .project-card h3 { margin: .5cm 0 .25cm; font-size: 14pt; }
