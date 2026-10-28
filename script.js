@@ -2,7 +2,7 @@ document.documentElement.classList.replace("no-js", "js");
 
 const hasAcademicData = Boolean(window.academicData);
 const data = window.academicData || {
-  appointments: [], education: [], publications: [], conferences: [], projects: [], knowledgeExchange: [], researchAreas: [],
+  appointments: [], education: [], publications: [], conferences: [], projects: [], academicContribution: {}, knowledgeExchange: [], researchAreas: [],
 };
 
 const topicNames = Object.fromEntries((data.researchAreas || []).map((topic) => [topic.id, topic.shortTitle || topic.title]));
@@ -119,12 +119,64 @@ function renderProjects() {
   data.projects.forEach((project, index) => {
     const article = createElement("article", "project-card reveal");
     article.dataset.acronym = project.acronym || "PROJECT";
-    article.append(
-      createElement("span", "project-number", String(index + 1).padStart(2, "0")),
-      createElement("h3", "", project.title),
-      createElement("p", "", project.acronym ? `International project · ${project.acronym}` : "International collaboration"),
-    );
+    article.append(createElement("span", "project-number", String(index + 1).padStart(2, "0")), createElement("h3", "", project.title));
+    const details = createElement("div", "project-details");
+    details.append(createElement("span", "project-label", project.context || `${project.acronym || "International"} project`));
+    if (project.role) details.append(createElement("strong", "project-role", project.role));
+    if (project.reference) details.append(createElement("span", "project-reference", `Project no. ${project.reference}`));
+    const link = makeLink("Project website →", project.href, "project-link");
+    if (link) details.append(link);
+    article.append(details);
     container.append(article);
+  });
+}
+
+function renderAcademicContribution() {
+  const contribution = data.academicContribution || {};
+  const highlights = document.querySelector("[data-contribution-highlights]");
+  contribution.highlights?.forEach((item) => {
+    const article = createElement("article", "contribution-stat reveal");
+    if (item.kind) article.dataset.kind = item.kind;
+    article.append(
+      createElement("strong", "contribution-value", item.value),
+      createElement("h3", "", item.title),
+      createElement("p", "", item.detail),
+    );
+    highlights?.append(article);
+  });
+
+  const development = document.querySelector("[data-professional-development]");
+  contribution.professionalDevelopment?.forEach((item) => {
+    const record = createElement("li", "contribution-record");
+    const meta = createElement("div", "contribution-record-meta");
+    const time = createElement("time", "", item.date);
+    if (item.dateTime) time.dateTime = item.dateTime;
+    meta.append(time);
+    if (item.credential) meta.append(createElement("span", "", item.credential));
+    record.append(meta, createElement("h4", "", item.title), createElement("p", "", item.organizer));
+    development?.append(record);
+  });
+
+  const curriculum = document.querySelector("[data-curriculum-contributions]");
+  contribution.curriculumContributions?.forEach((item) => {
+    const record = createElement("li", "contribution-record");
+    record.append(
+      createElement("div", "contribution-record-meta", item.year),
+      createElement("h4", "", item.title),
+      createElement("p", "", item.context),
+    );
+    curriculum?.append(record);
+  });
+
+  const engagement = document.querySelector("[data-professional-engagement]");
+  contribution.professionalEngagement?.forEach((item) => {
+    const record = createElement("li", "contribution-record");
+    record.append(
+      createElement("div", "contribution-record-meta", item.acronym),
+      createElement("h4", "", item.name),
+      createElement("p", "", item.role),
+    );
+    engagement?.append(record);
   });
 }
 
@@ -381,6 +433,7 @@ renderFeaturedPublications();
 renderCareer();
 renderEducation();
 renderProjects();
+renderAcademicContribution();
 renderActivityYears();
 renderFeaturedConferences();
 renderKnowledgeExchange();

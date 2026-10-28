@@ -853,19 +853,123 @@ window.academicData = {
   projects: [
     {
       id: "smart-green",
+      acronym: "GreenTech",
       title: "Smart & Green Technologies for Innovative and Sustainable Societies in the Western Balkans",
+      reference: "551984-EM-1-2014-1-ES-ERA MUNDUS-EMA21",
+      role: "Mobility Coordinator",
     },
     {
       id: "rdc",
       acronym: "RDC",
       title: "Science and Mathematics Education",
+      context: "Association for Teacher Education in Europe (ATEE)",
+      role: "Coordinator for Analysis and Algebra",
     },
     {
       id: "rebus",
       acronym: "REBUS",
       title: "Integrating and Validating Practical Skills in Engineering and ICT Studies",
+      reference: "573733-EPP-1-2016-1-FI-EPPKAD-CBH-JP",
+      role: "Local Finance Coordinator",
+      href: "https://www.rebusproject.net/",
     },
   ],
+
+  academicContribution: {
+    highlights: [
+      {
+        value: "4",
+        title: "Master’s theses supervised",
+        detail: "Public University “Kadri Zeka”",
+        kind: "mentoring",
+      },
+      {
+        value: "1",
+        title: "Doctoral student currently mentored",
+        detail: "University of Sarajevo",
+        kind: "mentoring",
+      },
+      {
+        value: "3",
+        title: "Published academic books",
+        detail: "One university textbook and two monographs",
+        kind: "authorship",
+      },
+      {
+        value: "2022",
+        title: "Best Researcher of the Year",
+        detail: "Public University “Kadri Zeka”",
+        kind: "recognition",
+      },
+    ],
+    professionalDevelopment: [
+      {
+        date: "27 February–2 March 2023",
+        dateTime: "2023-02-27",
+        title: "Teaching in Higher Education",
+        organizer: "Center for Excellence in Teaching, University of Prishtina",
+        credential: "Training certificate",
+      },
+      {
+        date: "11–13 April 2022",
+        dateTime: "2022-04-11",
+        title: "Writing Scientific Research Articles/Papers",
+        organizer: "University of Prishtina · Erasmus+ researchCULT Project · Prishtina, Kosovo",
+        credential: "Training certificate · 2 ECTS",
+      },
+      {
+        date: "24 September 2021",
+        dateTime: "2021-09-24",
+        title: "Designing an Individual Development Plan",
+        organizer: "Office for Academic Development and Quality, Public University “Kadri Zeka” · Gjilan, Kosovo",
+        credential: "Certificate of successful completion",
+      },
+    ],
+    curriculumContributions: [
+      {
+        year: 2021,
+        title: "Self-Evaluation Report (SER) — Public University “Kadri Zeka”",
+        context: "Institutional quality assurance · Gjilan",
+      },
+      {
+        year: 2019,
+        title: "Self-Evaluation Report (SER) — Faculty of Applied Sciences",
+        context: "Curriculum and quality assurance · Gjilan",
+      },
+      {
+        year: 2017,
+        title: "Strategy of the Faculty of Computer Science",
+        context: "Public University “Kadri Zeka” · Gjilan",
+      },
+      {
+        year: 2017,
+        title: "Self-Evaluation Report (SER) — Master’s Program in e-Governance",
+        context: "Program quality assurance · Gjilan",
+      },
+      {
+        year: 2016,
+        title: "Self-Evaluation Report (SER) — Faculty of Computer Science",
+        context: "Curriculum and quality assurance · Gjilan",
+      },
+    ],
+    professionalEngagement: [
+      {
+        acronym: "ATEE",
+        name: "Association for Teacher Education in Europe",
+        role: "Active member and participant in conferences and seminars on teacher education.",
+      },
+      {
+        acronym: "CERME",
+        name: "Congress of European Research in Mathematics Education",
+        role: "Participant and presenter at international congresses on mathematics education research.",
+      },
+      {
+        acronym: "MAA",
+        name: "Mathematical Association of America",
+        role: "Reviewer of scientific articles.",
+      },
+    ],
+  },
 
   knowledgeExchange: [
     {
